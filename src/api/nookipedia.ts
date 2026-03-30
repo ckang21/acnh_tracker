@@ -1,3 +1,14 @@
+export type Villager = {
+    name: string;
+    image_url: string;
+    species: string;
+    personality: string;
+    gender: string;
+    birthday_month: string;
+    birthday_day: string;
+    phrase: string;
+    appearances: string[];
+};
 
 async function get<T>(path: string, params?: Record<string, string>): Promise<T> {
     const key = import.meta.env.VITE_NOOKIPEDIA_API_KEY as string
@@ -15,6 +26,6 @@ async function get<T>(path: string, params?: Record<string, string>): Promise<T>
     return await res.json() as T
 }
 
-export function fetchVillagers(): Promise<unknown> {
-    return get('/villagers', { game: 'NH' })
+export function fetchVillagers(): Promise<Villager[]> {
+    return get<Villager[]>('/villagers', { game: 'NH' })
 }

@@ -2,9 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VillagersPage from "./pages/VillagersPage.tsx"
 import CrittersPage from "./pages/CrittersPage.tsx"
 import HomePage from "./pages/HomePage.tsx"
+import NavBar from "./components/Navbar.tsx";
+
 function App() {
   return (
     <BrowserRouter>
+      <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/villagers" element={<VillagersPage />} />
